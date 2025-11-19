@@ -12,8 +12,9 @@ dot-structures = "0.1.1"
 graphviz-rust = { version = "0.9.3", optional = true }
 open-hypergraphs = "0.2.1"
 
+[dev-dependencies]
+graphviz-rust = { version = "0.9.3" }
+
 [features]
 default = []
-graphviz_rust = ["dep:graphviz-rust"]
-
-[dev-dependencies]
+svg = ["dep:graphviz-rust"]
