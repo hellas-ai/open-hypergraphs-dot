@@ -2,8 +2,7 @@ use dot_structures::{Attribute, Edge, EdgeTy, Graph, Id, Node, NodeId, Port, Stm
 use open_hypergraphs::lax::OpenHypergraph;
 use std::fmt::Debug;
 
-pub mod options;
-pub use options::*;
+use crate::options::*;
 
 pub fn generate_dot<O, A>(graph: &OpenHypergraph<O, A>) -> Graph
 where
