@@ -1,6 +1,7 @@
+use std::fmt::Debug;
+
 use dot_structures::{Attribute, Edge, EdgeTy, Graph, Id, Node, NodeId, Port, Stmt, Vertex};
 use open_hypergraphs::lax::OpenHypergraph;
-use std::fmt::Debug;
 
 use crate::options::*;
 
@@ -15,8 +16,8 @@ where
 /// Generates a GraphViz DOT representation of a lax open hypergraph
 pub fn generate_dot_with<O, A>(graph: &OpenHypergraph<O, A>, opts: &Options<O, A>) -> Graph
 where
-    O: Clone + Debug + PartialEq,
-    A: Clone + Debug + PartialEq,
+    O: Clone + PartialEq,
+    A: Clone + PartialEq,
 {
     let theme = &opts.theme;
 
@@ -136,8 +137,8 @@ fn escape_dot_label(s: &str) -> String {
 /// Generate node statements for each node in the hypergraph
 fn generate_node_stmts<O, A>(graph: &OpenHypergraph<O, A>, opts: &Options<O, A>) -> Vec<Stmt>
 where
-    O: Clone + Debug + PartialEq,
-    A: Clone + Debug + PartialEq,
+    O: Clone + PartialEq,
+    A: Clone + PartialEq,
 {
     let mut stmts = Vec::new();
 
@@ -168,8 +169,8 @@ where
 /// Generate record node statements for each hyperedge
 fn generate_edge_stmts<O, A>(graph: &OpenHypergraph<O, A>, opts: &Options<O, A>) -> Vec<Stmt>
 where
-    O: Clone + Debug + PartialEq,
-    A: Clone + Debug + PartialEq,
+    O: Clone + PartialEq,
+    A: Clone + PartialEq,
 {
     let mut stmts = Vec::new();
 
@@ -228,8 +229,8 @@ where
 /// Generate statements connecting nodes to edges
 fn generate_connection_stmts<O, A>(graph: &OpenHypergraph<O, A>) -> Vec<Stmt>
 where
-    O: Clone + Debug + PartialEq,
-    A: Clone + Debug + PartialEq,
+    O: Clone + PartialEq,
+    A: Clone + PartialEq,
 {
     let mut stmts = Vec::new();
 
@@ -276,8 +277,8 @@ where
 /// Generate interface nodes for sources and targets of the hypergraph
 fn generate_interface_stmts<O, A>(graph: &OpenHypergraph<O, A>) -> Vec<Stmt>
 where
-    O: Clone + Debug + PartialEq,
-    A: Clone + Debug + PartialEq,
+    O: Clone + PartialEq,
+    A: Clone + PartialEq,
 {
     let mut stmts = Vec::new();
 
@@ -395,8 +396,8 @@ where
 /// Generate statements for quotient connections (dotted lines between unified nodes)
 fn generate_quotient_stmts<O, A>(graph: &OpenHypergraph<O, A>) -> Vec<Stmt>
 where
-    O: Clone + Debug + PartialEq,
-    A: Clone + Debug + PartialEq,
+    O: Clone + PartialEq,
+    A: Clone + PartialEq,
 {
     let mut stmts = Vec::new();
 

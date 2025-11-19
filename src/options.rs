@@ -1,5 +1,5 @@
 use std::fmt;
-use std::fmt::Debug;
+use std::fmt::{Debug, Display};
 
 pub struct Options<O, A> {
     pub orientation: Orientation,
@@ -16,6 +16,20 @@ impl<O: Debug, A: Debug> Default for Options<O, A> {
             node_label: Box::new(|n| format!("{:?}", n)),
             edge_label: Box::new(|e| format!("{:?}", e)),
         }
+    }
+}
+
+// Fluent interface for Options
+impl<O: Display, A: Display> Options<O, A> {
+    pub fn display(mut self) -> Self {
+        self.node_label = Box::new(|n| format!("{}", n));
+        self.edge_label = Box::new(|e| format!("{}", e));
+        self
+    }
+
+    pub fn lr(mut self) -> Self {
+        self.orientation = Orientation::LR;
+        self
     }
 }
 

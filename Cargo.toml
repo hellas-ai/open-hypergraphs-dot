@@ -9,7 +9,11 @@ documentation = "https://docs.rs/open-hypergraphs-dot"
 
 [dependencies]
 dot-structures = "0.1.1"
+graphviz-rust = { version = "0.9.3", optional = true }
 open-hypergraphs = "0.2.1"
 
+[features]
+default = []
+graphviz_rust = ["dep:graphviz-rust"]
+
 [dev-dependencies]
-graphviz-rust = "0.9.3"
