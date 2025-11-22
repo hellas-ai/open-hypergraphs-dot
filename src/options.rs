@@ -26,9 +26,18 @@ impl<O: Display, A: Display> Options<O, A> {
         self.edge_label = Box::new(|e| format!("{}", e));
         self
     }
+}
 
+impl<O, A> Options<O, A> {
+    /// Set orientation to LR
     pub fn lr(mut self) -> Self {
         self.orientation = Orientation::LR;
+        self
+    }
+
+    /// Set orientation to TB
+    pub fn tb(mut self) -> Self {
+        self.orientation = Orientation::TB;
         self
     }
 }
