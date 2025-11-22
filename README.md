@@ -16,7 +16,7 @@ to an SVG in one line:
 
 ```rust
 use open_hypergraphs_dot::{Options, svg::to_svg_with};
-std::fs::write("out.svg", to_svg_with(&term, &Options::default()));
+std::fs::write("out.svg", to_svg_with(&term, &Options::default())?);
 ```
 
 If you want non-standard options, you can use the fluent options interface:
@@ -24,7 +24,7 @@ If you want non-standard options, you can use the fluent options interface:
 ```rust
 // use defaults in Left-to-right orientation, using Display instance for nodes and edges
 let opts = Options::default().display().lr();
-std::fs::write("out.svg", to_svg_with(&term, &opts));
+std::fs::write("out.svg", to_svg_with(&term, &opts)?);
 ```
 
 
