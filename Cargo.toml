@@ -1,6 +1,6 @@
 [package]
 name = "open-hypergraphs-dot"
-version = "0.2.3"
+version = "0.2.4"
 edition = "2021"
 license = "MIT"
 description = "A library for visualizing lax open hypergraphs in GraphViz DOT format"
@@ -10,7 +10,7 @@ documentation = "https://docs.rs/open-hypergraphs-dot"
 [dependencies]
 dot-structures = "0.1.1"
 graphviz-rust = { version = "0.9.3", optional = true }
-open-hypergraphs = "0.2.1"
+open-hypergraphs = "0.3.0"
 
 [dev-dependencies]
 graphviz-rust = { version = "0.9.3" }
